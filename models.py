@@ -7,7 +7,7 @@ DATABASE = SqliteDatabase('learningjournal.db')
 class JournalEntry(Model):
     title = CharField()
     date_created = DateField()
-    time_spent = CharField()
+    time_spent = IntegerField()
     content_learnt = TextField()
     resources = TextField()
 
