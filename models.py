@@ -4,6 +4,7 @@ from peewee import *
 
 DATABASE = SqliteDatabase('learningjournal.db')
 
+
 class JournalEntry(Model):
     title = CharField()
     date_created = DateField()

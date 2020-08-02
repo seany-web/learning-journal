@@ -4,6 +4,7 @@ from wtforms.validators import DataRequired
 
 from models import JournalEntry
 
+
 class JournalEntryForm(FlaskForm):
     title = StringField(
         'Title',
@@ -17,7 +18,7 @@ class JournalEntryForm(FlaskForm):
     )
     content_learnt = TextAreaField(
         'What you learnt', validators=[DataRequired()]
-    )   
+    )
     resources = TextAreaField(
         'Useful Resources to Remember'
     )

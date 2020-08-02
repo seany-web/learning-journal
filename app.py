@@ -10,6 +10,7 @@ HOST = '0.0.0.0'
 app = Flask(__name__)
 app.secret_key = '#&Fiujg73KDusr$%WfihnfFWgnfvER'
 
+
 @app.before_request
 def before_request():
     """Connect to the database before each request"""
@@ -38,11 +39,11 @@ def new_entry():
     form = forms.JournalEntryForm()
     if form.validate_on_submit():
         models.JournalEntry.create(
-            title = form.title.data,
-            date_created = form.created_date.data,
-            time_spent = form.time_spent.data,
-            content_learnt = form.content_learnt.data.strip(),
-            resources = form.resources.data.strip()
+            title=form.title.data,
+            date_created=form.created_date.data,
+            time_spent=form.time_spent.data,
+            content_learnt=form.content_learnt.data.strip(),
+            resources=form.resources.data.strip()
         )
         return redirect('/entries')
     return render_template('new.html', form=form)
@@ -79,7 +80,7 @@ def edit_entry(id):
             entry.save()
             return redirect(url_for('index'))
     return render_template('edit.html', form=form, entry=entry)
-    
+
 
 @app.route('/entries/<int:id>/delete')
 def delete_entry(id):
