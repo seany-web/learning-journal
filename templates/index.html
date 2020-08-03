@@ -1,11 +1,13 @@
 {% extends "layout.html" %}
+
+{% block content %}
     <div class="entry-list">
-        {% block content %}
-            {% for journal_entry in entries %}
-                <article>
-                    <h2><a href="{{ url_for('get_entry', id=journal_entry.id) }}">{{ journal_entry.title }}</a></h2>
-                    <time datetime="{{ journal_entry.date_created.strftime('%Y-%d-%m') }}">{{ journal_entry.date_created.strftime('%B %d,%Y') }}</time>
-                </article>
-            {% endfor %}
-        {% endblock %}
-    </div>
+        {% for journal_entry in entries %}
+            <article>
+                <h2><a href="{{ url_for('get_entry', id=journal_entry.id) }}">{{ journal_entry.title }}</a></h2>
+                <time datetime="{{ journal_entry.date_created.strftime('%Y-%d-%m') }}">{{ journal_entry.date_created.strftime('%B %d,%Y') }}</time>
+            </article>
+        {% endfor %}
+    </div>    
+{% endblock %}
+    
